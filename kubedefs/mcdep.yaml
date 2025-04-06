@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nvpromc
+  labels:
+    app: nvpromc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nvpromc
+  template:
+    metadata:
+      labels:
+        app: nvpromc
+    spec:
+      containers:
+      - name: nvpromc
+        image: memcached
+        ports:
+        - name: vpromc-port
+          containerPort: 11211
